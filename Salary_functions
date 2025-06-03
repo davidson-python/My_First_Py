@@ -1,0 +1,30 @@
+# the purpose of this program is to calculate salary, working time and the balance of workers
+nimi1 = str(input("Sisesta esimese töötaja nimi: "))
+tunnid = float(input("Sisesta tema töötamise tunnid nädala jooksul: "))
+tasu_hour = float(input("Sisesta tema töötasu tundides: "))
+
+nimi2 = str(input("Sisesta teise töötaja nimi: "))
+tunnid_2 = float(input("Sisesta tema töötamise tunnid nädala jooksul: "))
+tasu_hour_2 = float(input("Sisesta tema töötasu tundides: "))
+
+def arvuta_tasu(tunnid, tasu_hour):
+    if tunnid <= 40:
+        tasu = tunnid * tasu_hour
+    else:
+        ulejaanud = tunnid - 40
+        tasu = 40 * tasu_hour + ulejaanud * 1.5 * tasu_hour
+    return tasu
+
+def arvuta_tasu(tunnid_2, tasu_hour_2):
+    if tunnid_2 <= 40:
+        tasu = tunnid_2 * tasu_hour_2
+    else:
+        ulejaanud = tunnid_2 - 40
+        tasu = 40 * tasu_hour_2 + ulejaanud * 1.5 * tasu_hour_2
+    return tasu
+
+def main():
+    return print(f"{nimi1}, tasu on {arvuta_tasu(tunnid, tasu_hour):.2} ja {nimi2}, tasu on {arvuta_tasu(tunnid_2, tasu_hour_2):.2}")
+
+if __name__ == "__main__":
+    main()
