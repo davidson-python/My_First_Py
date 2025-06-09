@@ -1,0 +1,10 @@
+täisarv = int(input("Sisesta korduste arv: "))
+i = 0
+harjutuste_arv = 0
+
+for i in range(täisarv):
+    harjutuste_arv += i + 1
+    i += 1
+
+
+print(f"Harjutuste arv: {harjutuste_arv}")
