@@ -1,0 +1,28 @@
+def päevade_arv(kuu):
+    if kuu == 1 or kuu == 3 or kuu == 5 or kuu == 7 or kuu == 8 or kuu == 10 or kuu == 12:
+        return 31
+    elif kuu == 4 or kuu == 6 or kuu == 9 or kuu == 11:
+        return 30
+    elif kuu == 2:
+        return 28
+    else:
+        return -1
+
+def main():
+    while True:
+        sisend = input("Sisesta kuu järjekorra number: ")
+        if sisend.lower() == 'lõpp':
+            print("Programm lõpetas töö")
+            break
+        try:
+            kuu = int(sisend)
+            if 1 <= kuu <= 12:
+                päevad = päevade_arv(kuu)
+                print(f"Selles kuus on {päevad} päeva.")
+            else:
+                print("Ebakorrektne number")
+        except ValueError:
+            print("Ebakorrektne number")
+
+if __name__ == "__main__":
+    main()
