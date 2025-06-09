@@ -1,0 +1,26 @@
+kirjade_arv = int(input("Sisesta kirjade arv: "))
+
+def kirja_hind(kaal):
+    if kaal <= 250:
+        return 1.75
+    elif 250 < kaal <= 500:
+        return 2.70
+    elif 500 < kaal <= 1000:
+        return 2.85
+    else:
+        return 4.35
+
+kogusumma = 0
+i = 0
+while i < kirjade_arv:
+    i += 1
+    kaal = int(input(f"Sisesta {i}. kirja kaal grammides: "))
+    hind = kirja_hind(kaal)
+    kogusumma += hind
+
+
+def main():
+    return print(kogusumma)
+
+if __name__ == '__main__':
+    main()
