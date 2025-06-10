@@ -1,0 +1,36 @@
+def loe_kutsed(failinimi):
+    kutsed = []
+    with open(failinimi, encoding="utf-8") as f:
+        read = [rida.strip() for rida in f if rida.strip() != ""]
+        for i in range(0, len(read), 2):
+            nimi = read[i]
+            vastus = read[i+1]
+            kutsed.append((nimi, vastus))
+    return kutsed
+
+def arvuta_statistika(kutsed, hind_per_inimene=10):
+    koguarv = len(kutsed)
+    kindlad_tulijad = sum(1 for nimi, v in kutsed if v == "+")
+    mitte_tulijad = sum(1 for nimi, v in kutsed if v == "-")
+    teadmata = sum(1 for nimi, v in kutsed if v == "?")
+
+    min_osalejad = kindlad_tulijad
+    max_osalejad = kindlad_tulijad + teadmata
+
+    min_eelarve = min_osalejad * hind_per_inimene
+    max_eelarve = max_osalejad * hind_per_inimene
+
+    return koguarv, min_osalejad, max_osalejad, min_eelarve, max_eelarve
+
+def main():
+    failinimi = input("Sisesta failinimi: ")
+    kutsed = loe_kutsed(failinimi)
+    koguarv, min_osalejad, max_osalejad, min_eelarve, max_eelarve = arvuta_statistika(kutsed)
+
+    print(f"\nKutsutud külaliste koguarv: {koguarv}")
+    print(f"Vähim võimalik osavõtjate arv: {min_osalejad}")
+    print(f"Suurim võimalik osavõtjate arv: {max_osalejad}")
+    print(f"Peo eelarve (min): {min_eelarve} €")
+    print(f"Peo eelarve (max): {max_eelarve} €")
+
+main()
