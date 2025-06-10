@@ -1,0 +1,9 @@
+def suurväike(sõne):
+    return sõne.swapcase()
+
+def main():
+    sõne = input("Sisesta lause: ")
+    print(suurväike(sõne))
+
+if __name__ == "__main__":
+    main()
