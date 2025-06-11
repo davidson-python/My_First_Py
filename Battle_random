@@ -1,0 +1,30 @@
+from random import randint
+
+täring1 = randint(1, 6)
+täring2 = randint(1, 6)
+
+loh_pead = 9
+kangelane_süda = 16
+
+kangelane = täring1
+lohing = täring2
+
+while 0 < kangelane_süda and 0 < loh_pead:
+        loh_pead -= täring1
+        loh_pead += 2
+        print(f"Sa said {kangelane}")
+        print(f"Lohil jäi {loh_pead} pea")
+
+        if loh_pead <= 0:
+            print("Kangelane võitis!")
+            break
+
+        kangelane_süda -= täring2
+        print(f"Sa said {lohing}")
+        print(f"Kangelasel jäi {kangelane_süda} süda")
+
+        if kangelane_süda <= 0 or loh_pead >= 18:
+            print("Loh võitis!")
+            break
+
+print("Mäng lõppes")
