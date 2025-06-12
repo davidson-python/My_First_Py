@@ -1,0 +1,14 @@
+from urllib.request import urlopen
+
+vastus = urlopen("https://courses.cs.ut.ee/2024/programmeerimine/Main/S%c3%b5nedJaLihtsamFailit%c3%b6%c3%b6tlus?action=download&upname=linnud.txt")
+
+baitid = vastus.read()
+tekst = baitid.decode("UTF-8")
+
+for rida in tekst.splitlines():
+    if rida.isdigit():
+        continue
+    else:
+        print(f"Hi {rida.strip()}")
+
+vastus.close()
