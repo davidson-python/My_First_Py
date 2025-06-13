@@ -1,0 +1,15 @@
+def kirjuta_faili(sõne):
+    with open("blogi.txt", "a", encoding="utf-8") as file:
+        file.write(sõne + "\n")  # lisa reavahetus
+    print("Faili kirjutatud!")
+
+def main():
+    while True:
+        sisend = input("Sisesta lause: ")
+        if sisend.lower() == "lõpp":
+            break
+
+    print("Program lõpetas töö.")
+
+if __name__ == "__main__":
+    main()
