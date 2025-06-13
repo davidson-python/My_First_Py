@@ -1,0 +1,42 @@
+def eelarve(inimeste_arv):
+    return inimeste_arv * 10 + 55
+
+fail = input("Sisesta oma faili nimi: ")
+
+try:
+    with open(fail, encoding="utf-8") as file:
+        read = [rida.strip() for rida in file.readlines()]
+        koguarv = len(read) // 2
+
+        tulevad = 0
+        ei_tea = 0
+
+        for rida in range(1, len(read), 2):
+            if read == "+":
+                tulevad += 1
+            elif read == "?":
+                ei_tea += 1
+
+        min_tulevad = tulevad
+        max_tulevad = tulevad + ei_tea
+
+        min_eelarve = eelarve(min_tulevad)
+        max_eelarve = eelarve(max_tulevad)
+
+        tekst = (
+            f"Kutsutud külaliste koguarv: {koguarv}\n"
+            f"Vähim võimalik osavõtjate arv: {min_tulevad}\n"
+            f"Suurim võimalik osavõtjate arv: {max_tulevad}\n"
+            f"Eelarve võib olla vahemikus {min_eelarve}€ kuni {max_eelarve}€\n"
+        )
+
+        print(tekst)
+
+        väljund = input("Sisesta väljundfaili nimi: ")
+        with open(väljund, "w", encoding="utf-8") as out:
+            out.write(tekst)
+
+        print(f"Andmed salvestati faili '{väljund}'.")
+        
+except FileNotFoundError:
+    print("Sisestasid vale faili")
